@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'jacoco'
 }
 
 application {
@@ -25,4 +26,7 @@ test {
 
 compileJava {
     options.release = 17
+}
+run {
+    standardInput = System.in
 }
