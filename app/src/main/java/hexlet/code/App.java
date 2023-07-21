@@ -1,25 +1,22 @@
 package hexlet.code;
-import java.util.Scanner;
 public class App {
-    public static String user = "";
     public static void main(String[] args) {
-        String[] games = {"Exit", "Greet", "Even"};
-        int choice = 0;
-        System.out.println("Please enter the game number and press Enter.");
-        for(int i = 1; i < games.length; i++) {
-            System.out.printf("%d - %s\n", i, games[i]);
-        }
-        System.out.println("0 - Exit");
-        Scanner sc = new Scanner(System.in);
-        choice = sc.nextInt();
-        System.out.println("Your choice: " + choice + "\n");
-        if (choice == 0) {
-            return;
-        }
-        switch (choice) {
-            case 1: Cli.greeting(); break;
-            case 2: Game.gameParityNumber(); break;
-            default: break;
+        String[] games = {"Exit", "Greet", "Even", "Calc"};
+        int choice = Engine.getGameNumber(games);
+        boolean result = false; //if user win - true, if lose - false
+        boolean wasGame = true; //if game has been played - true;, else - false
+            if (choice >= 0 && choice <= games.length) {
+                Cli.greeting();
+                switch (choice) {
+                    case 2: result = Game.playParityNumber(); break;
+                    case 3: result = Game.playCalc(); break;
+                    default: wasGame = false;
+                }
+            }
+        if (result) {
+            Engine.announceTheResult(result, "Congratulations, " + Cli.name + "!");
+        } else if (!result & wasGame){
+            Engine.printMessage("Let's try again, " + Cli.name);
         }
     }
 }

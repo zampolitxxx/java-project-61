@@ -1,36 +1,60 @@
 package hexlet.code;
 import java.lang.Math;
-import java.util.Scanner;
 
 public class Game {
-    public static void gameParityNumber() {
-        int numberOfQuestions = 3;
-        int score = 0;
-        int mimRandom = 1;
-        int maxRandom = 10;
-        Cli.greeting();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        for (int i = 0; i <numberOfQuestions; i++) {
-            int randomNumber = 1 + (int) (Math.random() * (maxRandom - mimRandom) + mimRandom);
-            System.out.println("Question: " + randomNumber);
-            System.out.print("Your answer: ");
-            Scanner sc = new Scanner(System.in);
-            String answer = sc.nextLine();
+    private static final int minRandom = 1;
+    private static final int maxRandom = 10;
+    private static int score = 0;
+    private static final int numberOfRounds = 3;
+
+    public static boolean playParityNumber() {
+        Engine.printMessage("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        for (int i = 0; i <numberOfRounds; i++) {
+            int randomNumber = 1 + (int) (Math.random() * (maxRandom - minRandom) + minRandom);
+            Engine.printMessage("Question: " + randomNumber);
+            String answer = Engine.getStr("Your answer: ");
             if ((answer.equals("yes") && (randomNumber % 2) == 0) || (answer.equals("no") && (randomNumber % 2) != 0)) {
-                System.out.println("Correct!");
+                Engine.printMessage("Correct!");
                 score++;
             } else {
                 if ((randomNumber % 2) != 0 & !answer.equals("no")) {
-                    System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
+                    Engine.printMessage("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
                 } else {
-                    System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
+                    Engine.printMessage("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
                 }
-                System.out.println("Let's try again, " + App.user + "!");
-                break;
+                return false;
             }
         }
-        if (score == numberOfQuestions) {
-            System.out.println("Congratulations, " + App.user + "!");
+        return true;
+    }
+    public static boolean playCalc() {
+        char[] sign = {'+', '-', '*'};
+        int result = 0;
+        int usersResult = 0;
+        Engine.printMessage("What is the result of the expression?");
+        for (int i = 0; i <numberOfRounds; i++) {
+            int firstNumber = 1 + (int) (Math.random() * (maxRandom - minRandom) + minRandom);
+            int secondNumber = 1 + (int) (Math.random() * (maxRandom - minRandom) + minRandom);
+            char signInExpression = sign[((int) (Math.random() * (sign.length)))];
+            Engine.printMessage("Question: " + firstNumber + " " + signInExpression + " " + secondNumber);
+            usersResult = Engine.getNumber("Your answer: ");
+            switch(signInExpression) {
+                case '-': result = firstNumber - secondNumber; break;
+                case '+': result = firstNumber + secondNumber; break;
+                case '*': result = firstNumber * secondNumber; break;
+            }
+            if (usersResult == result) {
+                Engine.printMessage("Correct!");
+                score++;
+            }
+            else {
+                Engine.printMessage("'" + usersResult + "'" + " is wrong answer ;(. Correct answer was " + "'" + result + "'." );
+                return false;
+            }
+
         }
+        return true;
     }
 }
+
+

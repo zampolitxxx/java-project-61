@@ -1,14 +1,10 @@
 package hexlet.code;
 
-import java.util.Scanner;
-
 class Cli {
+    public static String name = "";
     static void greeting() {
-        String name = "";
-        System.out.println("Welcome to the Brain Games!");
-        Scanner sc = new Scanner(System.in);
-        System.out.print("May I have your name? ");
-        App.user = sc.nextLine();
-        System.out.println("Hello, " + App.user + "!");
+        Engine.printMessage("Welcome to the Brain Games!");
+        Cli.name = Engine.getName("May I have your name? ");
+        Engine.printMessage("Hello, " + name + "!");
     }
 }
