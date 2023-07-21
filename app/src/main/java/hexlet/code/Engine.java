@@ -43,6 +43,21 @@ public class Engine {
             System.out.println();
         }
     }
+    public static int getGCD(int a, int b) {
+        int remainder = 0;
+        int smallerNumber = a;
+        int largerNumber = b;
+        if (a >= b) {
+            smallerNumber = b;
+            largerNumber = a;
+        }
+        do {
+            remainder = largerNumber % smallerNumber;
+            largerNumber = smallerNumber;
+            smallerNumber = remainder;
+        } while (remainder != 0);
+        return largerNumber;
+    }
 
     public static void printMessage(String message) {
         System.out.println(message);
