@@ -58,6 +58,13 @@ public class Engine {
         } while (remainder != 0);
         return largerNumber;
     }
+    public static int[] getProgression(String mode, int progressionLength) {
+        int[] progressionNumbers = new int[progressionLength];
+        for (int i = 0; i < progressionLength; i++) {
+            progressionNumbers[i] = i;
+        }
+        return progressionNumbers;
+    }
 
     public static void printMessage(String message) {
         System.out.println(message);

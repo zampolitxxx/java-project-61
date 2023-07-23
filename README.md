@@ -9,9 +9,16 @@ even-odd console game
 [![demo](https://asciinema.org/a/5RMMkXHSFm4KanoPbv5NHCN8A.svg)](https://asciinema.org/a/5RMMkXHSFm4KanoPbv5NHCN8A)
 calcGame
 [![asciicast](https://asciinema.org/a/9HYclYePSTBqXYl6vAq3tyBGX.svg)](https://asciinema.org/a/9HYclYePSTBqXYl6vAq3tyBGX)
+GCD
+[![asciicast](https://asciinema.org/a/MYpq1NPmswslbtBFsKpLgCHj3.svg)](https://asciinema.org/a/MYpq1NPmswslbtBFsKpLgCHj3)
+Progression
+[![asciicast](https://asciinema.org/a/KntyiXBoU8su1J8NG1mIQBzuL.svg)](https://asciinema.org/a/KntyiXBoU8su1J8NG1mIQBzuL)
 ### Quick intro
 the utility allows you to play the following console games:
 1. even-odd game
 2. calc Game
+3. GCD - it is necessary to find the largest common multiple
+4. Progression - you need to find the missing number in the number series
+
 
 ### Usage

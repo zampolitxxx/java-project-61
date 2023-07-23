@@ -1,7 +1,7 @@
 package hexlet.code;
 public class App {
     public static void main(String[] args) {
-        String[] games = {"Exit", "Greet", "Even", "Calc", "GCD"};
+        String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression"};
         int choice = Engine.getGameNumber(games);
         boolean result = false; //if user win - true, if lose - false
         boolean wasGame = true; //if game has been played - true;, else - false
@@ -11,6 +11,7 @@ public class App {
                     case 2: result = Game.playParityNumber(); break;
                     case 3: result = Game.playCalc(); break;
                     case 4: result = Game.playGCD(); break;
+                    case 5: result = Game.progression(); break;
                     default: wasGame = false;
                 }
             }

@@ -73,6 +73,36 @@ public class Game {
         }
         return true;
     }
+
+    public static boolean progression() {
+        final int progressionLength = 10;
+        int score = 0;
+        int hzkaknazvat = 3;    // mnojitel dly Stringbuffer
+        Engine.printMessage("What number is missing in the progression?");
+        for (int i = 0; i < numberOfRounds; i++) {
+            StringBuffer sb = new StringBuffer(progressionLength * hzkaknazvat);
+            int indexOfHiddenNumber = (int) (Math.random() * progressionLength);
+            int[] progressionOfNumbers = Engine.getProgression("sum", progressionLength);
+            for (int j = 0; j < progressionLength; j++) {
+                if (j == indexOfHiddenNumber) {
+                    sb.append(" .. ");
+                }
+                else {
+                    sb.append(progressionOfNumbers[j] + " ");
+                }
+            }
+            Engine.printMessage("Question: "+ sb.toString());
+            int userResult = Engine.getNumber("Your answer:");
+            if (userResult == progressionOfNumbers[indexOfHiddenNumber]) {
+                Engine.printMessage("Correct!");
+                score++;
+            } else {
+                Engine.printMessage("'" + userResult + "'" + " is wrong answer ;(. Correct answer was " + "'" + progressionOfNumbers[indexOfHiddenNumber] + "'.");
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 
