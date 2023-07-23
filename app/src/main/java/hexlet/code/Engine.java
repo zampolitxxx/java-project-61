@@ -69,4 +69,10 @@ public class Engine {
     public static void printMessage(String message) {
         System.out.println(message);
     }
+
+    public static boolean isPrime(int number) {
+        if (number == 2 || number == 3 || number == 5 || number == 7 || number == 11 || number == 13 || number == 17 || number == 19) {
+            return true;
+        } else return false;
+    }
 }

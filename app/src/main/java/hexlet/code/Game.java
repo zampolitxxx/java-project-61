@@ -103,6 +103,30 @@ public class Game {
         }
         return true;
     }
+
+    public static boolean playPrime() {
+        int score = 0;
+        int shiftNumber = 1;   //avoids one in a number of random numbers
+        Engine.printMessage("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        for (int i = 0; i < numberOfRounds; i++) {
+            int randomNumber = shiftNumber + (int) (Math.random() * (maxRandom - minRandom) + minRandom);
+            Engine.printMessage("Question: " + randomNumber);
+            String userResponse = Engine.getStr("Your answer: ");
+            if ((userResponse.equals("yes") & Engine.isPrime(randomNumber)) || (userResponse.equals("no") & !Engine.isPrime(randomNumber))) {
+                Engine.printMessage("Correct!");
+                score++;
+            }
+            else {
+                if (Engine.isPrime(randomNumber)) {
+                    Engine.printMessage("'" + userResponse + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
+                } else {
+                    Engine.printMessage("'" + userResponse + "'" + " is wrong answer ;(. Correct answer was 'no'.");
+                }
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 
