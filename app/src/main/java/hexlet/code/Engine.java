@@ -2,12 +2,12 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static int getGameNumber(String[] games) {
+    public static int getGameNumber(String[][] games) {
         int choice = 0;
         System.out.println("Please enter the game number and press Enter.");
         //show list of the games
         for(int i = 1; i < games.length; i++) {
-            System.out.printf("%d - %s\n", i, games[i]);
+            System.out.printf("%d - %s\n", i, games[i][1]);
         }
         System.out.println("0 - Exit");
         //end section of list games
@@ -21,7 +21,7 @@ public class Engine {
         return str;
     }
     public static String getStr(String question) {
-        System.out.println(question);
+        System.out.print(question);
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         //sc.close();
@@ -35,13 +35,8 @@ public class Engine {
         return number;
     }
 
-    public static void announceTheResult(boolean result, String message) {
-        if (result) {
+    public static void announceTheResult(String message) {
             System.out.println(message);
-        }
-        else {
-            System.out.println();
-        }
     }
     public static int getGCD(int a, int b) {
         int remainder = 0;

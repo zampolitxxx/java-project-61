@@ -1,25 +1,49 @@
 package hexlet.code;
+
 public class App {
+    private static final int numberOfRounds = 3;
+    private static int score = 0;
+    private final static String correctAnswer = "Correct!";
     public static void main(String[] args) {
-        String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
+        String[][] games = {
+                {"0", "Exit", ""},
+                {"1", "Greet", ""},
+                {"2", "Even", "Answer 'yes' if the number is even, otherwise answer 'no'."},
+                {"3", "Calc", "What is the result of the expression?"},
+                {"4", "GCD", "Find the greatest common divisor of given numbers."},
+                {"5", "Progression", "What number is missing in the progression?"},
+                {"6", "Prime", "Answer 'yes' if given number is prime. Otherwise answer 'no'."}
+        };
         int choice = Engine.getGameNumber(games);
-        boolean result = false; //if user win - true, if lose - false
-        boolean wasGame = true; //if game has been played - true;, else - false
-            if (choice >= 0 && choice <= games.length) {
-                Cli.greeting();
+        String result = ""; // Если игрок выиграл раунд, возвращается строка "Correct!", иначе выводим строку с правильным ответом и предлагаем сыграть еще раз
+
+        if (choice == 1) {
+            Cli.greeting();
+        }
+
+        if (choice > 1 & choice < games.length) {
+            Cli.greeting();
+            Engine.printMessage(games[choice][2]);
+            do {
                 switch (choice) {
                     case 2: result = Game.playParityNumber(); break;
                     case 3: result = Game.playCalc(); break;
                     case 4: result = Game.playGCD(); break;
-                    case 5: result = Game.progression(); break;
+                    case 5: result = Game.playProgression(); break;
                     case 6: result = Game.playPrime(); break;
-                    default: wasGame = false;
                 }
-            }
-        if (result) {
-            Engine.announceTheResult(result, "Congratulations, " + Cli.name + "!");
-        } else if (!result & wasGame){
-            Engine.printMessage("Let's try again, " + Cli.name);
+                if (result.equals(correctAnswer)) {
+                    Engine.printMessage(correctAnswer);
+                    score++;
+                } else {
+                    Engine.printMessage(result);
+                    Engine.printMessage("Let's try again, " + Cli.name + "!");
+                    break;
+                }
+            } while (score < numberOfRounds );
+        }
+        if (score == numberOfRounds) {
+            Engine.printMessage("Congratulations, " + Cli.name + "!");
         }
     }
 }
