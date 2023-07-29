@@ -3,6 +3,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/zampolitxxx/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/zampolitxxx/java-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7941964b1d7228d3554d/maintainability)](https://codeclimate.com/github/zampolitxxx/java-project-61/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7941964b1d7228d3554d/test_coverage)](https://codeclimate.com/github/zampolitxxx/java-project-61/test_coverage)
 
 ### An example of how the application works
 even-odd console game
