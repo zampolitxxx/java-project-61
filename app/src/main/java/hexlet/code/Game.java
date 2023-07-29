@@ -63,7 +63,7 @@ public class Game {
         int[] progressionOfNumbers = Engine.getProgression("sum", progressionLength);
         for (int j = 0; j < progressionLength; j++) {
             if (j == indexOfHiddenNumber) {
-                sb.append(" .. ");
+                sb.append(".. ");
             }
             else {
                 sb.append(progressionOfNumbers[j] + " ");
