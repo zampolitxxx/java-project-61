@@ -6,7 +6,7 @@ public class Engine {
         int choice = 0;
         System.out.println("Please enter the game number and press Enter.");
         //show list of the games
-        for(int i = 1; i < games.length; i++) {
+        for (int i = 1; i < games.length; i++) {
             System.out.printf("%d - %s\n", i, games[i][1]);
         }
         System.out.println("0 - Exit");
@@ -66,8 +66,11 @@ public class Engine {
     }
 
     public static boolean isPrime(int number) {
-        if (number == 2 || number == 3 || number == 5 || number == 7 || number == 11 || number == 13 || number == 17 || number == 19) {
-            return true;
-        } else return false;
+        for (int i = 2; i <= number / 2; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

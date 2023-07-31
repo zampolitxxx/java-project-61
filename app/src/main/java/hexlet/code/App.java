@@ -1,9 +1,9 @@
 package hexlet.code;
 
 public class App {
-    private static final int numberOfRounds = 3;
+    private static final int NumberOfRounds = 3;
     private static int score = 0;
-    private final static String correctAnswer = "Correct!";
+    private final String CorrectAnswer = "Correct!";
     public static void main(String[] args) {
         String[][] games = {
                 {"0", "Exit", ""},
@@ -32,18 +32,18 @@ public class App {
                     case 5: result = Game.playProgression(); break;
                     case 6: result = Game.playPrime(); break;
                 }
-                if (result.equals(correctAnswer)) {
-                    Engine.printMessage(correctAnswer);
+                if (result.equals(CorrectAnswer)) {
+                    Engine.printMessage(CorrectAnswer);
                     score++;
                 } else {
                     Engine.printMessage(result);
-                    Engine.printMessage("Let's try again, " + Cli.name + "!");
+                    Engine.printMessage("Let's try again, " + Cli.getName() + "!");
                     break;
                 }
-            } while (score < numberOfRounds );
+            } while (score < NumberOfRounds);
         }
-        if (score == numberOfRounds) {
-            Engine.printMessage("Congratulations, " + Cli.name + "!");
+        if (score == NumberOfRounds) {
+            Engine.printMessage("Congratulations, " + Cli.getName() + "!");
         }
     }
 }
