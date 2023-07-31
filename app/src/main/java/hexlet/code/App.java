@@ -23,7 +23,7 @@ public class App {
          */
         String result = "";
 
-        if (choice == ArrayUtils.indexOf(games, "Greet")) {
+        if (choice == 1) {
             Cli.greeting();
         }
 
