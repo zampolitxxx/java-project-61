@@ -1,5 +1,6 @@
 package hexlet.code;
-import org.apache.commons.lang3.ArrayUtils;
+
+//import org.apache.commons.lang3.ArrayUtils;
 
 public class App {
     private static final int NUMBER_OF_ROUNDS = 3;

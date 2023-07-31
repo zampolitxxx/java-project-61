@@ -1,4 +1,5 @@
 package hexlet.code;
+
 import java.lang.Math;
 
 public class Game {
@@ -73,7 +74,8 @@ public class Game {
         if (userResult == progressionOfNumbers[indexOfHiddenNumber]) {
             return "Correct!";
         } else {
-            return "'" + userResult + "'" + " is wrong answer ;(. Correct answer was " + "'" + progressionOfNumbers[indexOfHiddenNumber] + "'.";
+            return "'" + userResult + "'" + " is wrong answer ;(. Correct answer was " + "'"
+                    + progressionOfNumbers[indexOfHiddenNumber] + "'.";
         }
     }
 
@@ -82,7 +84,8 @@ public class Game {
         int randomNumber = shiftNumber + (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM) + MIN_RANDOM);
         Engine.printMessage("Question: " + randomNumber);
         String userResponse = Engine.getStr("Your answer: ");
-        if ((userResponse.equals("yes") & Engine.isPrime(randomNumber)) || (userResponse.equals("no") & !Engine.isPrime(randomNumber))) {
+        if ((userResponse.equals("yes") & Engine.isPrime(randomNumber))
+                || (userResponse.equals("no") & !Engine.isPrime(randomNumber))) {
             return "Correct!";
         } else {
             if (Engine.isPrime(randomNumber)) {
