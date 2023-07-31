@@ -3,7 +3,7 @@ package hexlet.code;
 public class App {
     private static final int NumberOfRounds = 3;
     private static int score = 0;
-    private final String CorrectAnswer = "Correct!";
+    static private final String CorrectAnswer = "Correct!";
     public static void main(String[] args) {
         String[][] games = {
                 {"0", "Exit", ""},
