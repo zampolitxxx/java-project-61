@@ -2,12 +2,12 @@ package hexlet.code;
 import java.lang.Math;
 
 public class Game {
-    private static final int MinRandom = 1;
-    private static final int MaxRandom = 20;
+    private static final int MIN_RANDOM = 1;
+    private static final int MAX_RANDOM = 20;
 
 
     public static String playParityNumber() {
-            int randomNumber = 1 + (int) (Math.random() * (MaxRandom - MinRandom) + MinRandom);
+            int randomNumber = 1 + (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM) + MIN_RANDOM);
             Engine.printMessage("Question: " + randomNumber);
             String answer = Engine.getStr("Your answer: ");
             if ((answer.equals("yes") && (randomNumber % 2) == 0) || (answer.equals("no") && (randomNumber % 2) != 0)) {
@@ -25,8 +25,8 @@ public class Game {
         int usersResult = 0;
         int result = 0;
         char[] sign = {'+', '-', '*'};
-        int firstNumber = 1 + (int) (Math.random() * (MaxRandom - MinRandom) + MinRandom);
-        int secondNumber = 1 + (int) (Math.random() * (MaxRandom - MinRandom) + MinRandom);
+        int firstNumber = 1 + (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM) + MIN_RANDOM);
+        int secondNumber = 1 + (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM) + MIN_RANDOM);
         char signInExpression = sign[((int) (Math.random() * (sign.length)))];
         Engine.printMessage("Question: " + firstNumber + " " + signInExpression + " " + secondNumber);
         usersResult = Engine.getNumber("Your answer: ");
@@ -34,6 +34,7 @@ public class Game {
             case '-': result = firstNumber - secondNumber; break;
             case '+': result = firstNumber + secondNumber; break;
             case '*': result = firstNumber * secondNumber; break;
+            default: result = 0;
         }
         if (usersResult == result) {
             return "Correct!";
@@ -42,8 +43,8 @@ public class Game {
         }
     }
     public static String playGCD() {
-        int firstNumber = 1 + (int) (Math.random() * (MaxRandom - MinRandom) + MinRandom);
-        int secondNumber = 1 + (int) (Math.random() * (MaxRandom - MinRandom) + MinRandom);
+        int firstNumber = 1 + (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM) + MIN_RANDOM);
+        int secondNumber = 1 + (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM) + MIN_RANDOM);
         Engine.printMessage("Question: " + firstNumber + " " + secondNumber);
         int usersResult = Engine.getNumber("Your answer: ");
         int result = Engine.getGCD(firstNumber, secondNumber);
@@ -56,7 +57,7 @@ public class Game {
 
     public static String playProgression() {
         final int progressionLength = 10;
-        int sizeStringbuffer = 3;           // Коэффициент для выделения памяти под stringbuffer
+        final int sizeStringbuffer = 3;           // Коэффициент для выделения памяти под stringbuffer
         StringBuffer sb = new StringBuffer(progressionLength * sizeStringbuffer);
         int indexOfHiddenNumber = (int) (Math.random() * progressionLength);
         int[] progressionOfNumbers = Engine.getProgression("sum", progressionLength);
@@ -78,13 +79,12 @@ public class Game {
 
     public static String playPrime() {
         int shiftNumber = 1;   //avoids one in a number of random numbers
-        int randomNumber = shiftNumber + (int) (Math.random() * (MaxRandom - MinRandom) + MinRandom);
+        int randomNumber = shiftNumber + (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM) + MIN_RANDOM);
         Engine.printMessage("Question: " + randomNumber);
         String userResponse = Engine.getStr("Your answer: ");
         if ((userResponse.equals("yes") & Engine.isPrime(randomNumber)) || (userResponse.equals("no") & !Engine.isPrime(randomNumber))) {
             return "Correct!";
-        }
-        else {
+        } else {
             if (Engine.isPrime(randomNumber)) {
                 return "'" + userResponse + "'" + " is wrong answer ;(. Correct answer was 'yes'.";
             } else {
