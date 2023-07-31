@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import java.lang.Math;
-
 public class Game {
     private static final int MIN_RANDOM = 1;
     private static final int MAX_RANDOM = 20;
