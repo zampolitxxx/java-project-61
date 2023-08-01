@@ -7,6 +7,12 @@ public class App {
     private static int score = 0;
     private static final int NUMBER_OF_QESTION_IN_STRUCT = 2;
     private static final String CORRECT_ANSWER = "Correct!";
+    private static final int SWITCH_KEY_GREET = 1;
+    private static final int SWITCH_KEY_EVEN = 2;
+    private static final int SWITCH_KEY_CALC = 3;
+    private static final int SWITCH_KEY_GCD = 4;
+    private static final int SWITCH_KEY_PROGRESSION = 5;
+    private static final int SWITCH_KEY_PRIME = 6;
     public static void main(String[] args) {
         String[][] games = {
                 {"0", "Exit", ""},
@@ -24,7 +30,7 @@ public class App {
          */
         String result = "";
 
-        if (choice == 1) {
+        if (choice == SWITCH_KEY_GREET) {
             Cli.greeting();
         }
 
@@ -33,11 +39,11 @@ public class App {
             Engine.printMessage(games[choice][NUMBER_OF_QESTION_IN_STRUCT]);
             do {
                 switch (choice) {
-                    case 2: result = Game.playParityNumber(); break;
-                    case 3: result = Game.playCalc(); break;
-                    case 4: result = Game.playGCD(); break;
-                    case 5: result = Game.playProgression(); break;
-                    case 6: result = Game.playPrime(); break;
+                    case SWITCH_KEY_EVEN: result = Game.playParityNumber(); break;
+                    case SWITCH_KEY_CALC: result = Game.playCalc(); break;
+                    case SWITCH_KEY_GCD: result = Game.playGCD(); break;
+                    case SWITCH_KEY_PROGRESSION: result = Game.playProgression(); break;
+                    case SWITCH_KEY_PRIME: result = Game.playPrime(); break;
                     default: result = "Your choice is not correct";
                 }
                 if (result.equals(CORRECT_ANSWER)) {
