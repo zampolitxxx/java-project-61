@@ -1,5 +1,4 @@
 plugins {
-    id 'java'
     id 'application'
     id 'jacoco'
     id 'checkstyle'
@@ -33,3 +32,6 @@ compileJava {
 run {
     standardInput = System.in
 }
+
+
+
