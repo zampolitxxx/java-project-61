@@ -1,77 +1,37 @@
 package hexlet.code;
 
 import java.util.Scanner;
+import java.util.function.UnaryOperator;
 
 public class Engine {
-    public static int getGameNumber(String[][] games) {
-        int choice = 0;
-        System.out.println("Please enter the game number and press Enter.");
-        //show list of the games
-        for (int i = 1; i < games.length; i++) {
-            System.out.printf("%d - %s\n", i, games[i][1]);
-        }
-        System.out.println("0 - Exit");
-        //end section of list games
-        return Engine.getNumber("Your choice: ");
-    }
-    public static String getName(String question) {
-        System.out.println(question);
-        Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        //sc.close();
-        return str;
-    }
-    public static String getStr(String question) {
-        System.out.print(question);
-        Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        //sc.close();
-        return str;
-    }
-    public static int getNumber(String question) {
-        System.out.print(question);
-        Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
-        //sc.close();
-        return number;
-    }
 
-    public static void announceTheResult(String message) {
-            System.out.println(message);
-    }
-    public static int getGCD(int a, int b) {
-        int remainder = 0;
-        int smallerNumber = a;
-        int largerNumber = b;
-        if (a >= b) {
-            smallerNumber = b;
-            largerNumber = a;
-        }
-        do {
-            remainder = largerNumber % smallerNumber;
-            largerNumber = smallerNumber;
-            smallerNumber = remainder;
-        } while (remainder != 0);
-        return largerNumber;
-    }
-    public static int[] getProgression(String mode, int progressionLength) {
-        int[] progressionNumbers = new int[progressionLength];
-        for (int i = 0; i < progressionLength; i++) {
-            progressionNumbers[i] = i;
-        }
-        return progressionNumbers;
-    }
+    public static final int INDEX_OF_QESTION = 0;   //in the data array [["Qustion, ...] => index=0;
+    public static final int INDEX_OF_ANSWER = 1;   //in the data array [["..., "Answer"],  => index=1;
+    public static final int MAX_RANDOM = 20;
+    public static final int MIN_RANDOM = 1;
+    public static final int NUMBER_OF_ROUNDS = 3;
+    public static final int NUM_OF_ELEM = 2; // Number of elements in array [["Qestion", "Answer"]... => 1+1=2
+    private static int score = 0;
 
-    public static void printMessage(String message) {
-        System.out.println(message);
-    }
-
-    public static boolean isPrime(int number) {
-        for (int i = 2; i <= number / 2; i++) {
-            if (number % i == 0) {
-                return false;
+    public static void startGame(String rules, String[][] data) {
+        System.out.println(rules);
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
+            System.out.println("Qestion: " + data[i][INDEX_OF_QESTION]);
+            System.out.print("Your answer: ");
+            Scanner sc = new Scanner(System.in);
+            String userAnswer = sc.nextLine();
+//            sc.close();
+            if (data[i][INDEX_OF_ANSWER].equals(userAnswer)) {
+                System.out.println("Correct!");
+                score++;
+            } else {
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + data[i][INDEX_OF_ANSWER] + "'.");
+                System.out.print("Let's try again, " + Cli.name + "!");
+                break;
+            }
+            if (score == 3) {
+                System.out.print("Congratulations, " + Cli.name + "!");
             }
         }
-        return true;
     }
 }
