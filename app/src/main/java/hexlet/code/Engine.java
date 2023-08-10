@@ -24,8 +24,8 @@ public class Engine {
                 System.out.println("Correct!");
                 score++;
             } else {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " +
-                        "'" + data[i][INDEX_OF_ANSWER] + "'.");
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was "
+                        + "'" + data[i][INDEX_OF_ANSWER] + "'.");
                 System.out.print("Let's try again, " + Cli.getName() + "!");
                 break;
             }
