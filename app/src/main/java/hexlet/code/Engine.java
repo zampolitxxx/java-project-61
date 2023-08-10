@@ -16,7 +16,7 @@ public class Engine {
     public static void startGame(String rules, String[][] data) {
         System.out.println(rules);
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            System.out.println("Qestion: " + data[i][INDEX_OF_QESTION]);
+            System.out.println("Question: " + data[i][INDEX_OF_QESTION]);
             System.out.print("Your answer: ");
             Scanner sc = new Scanner(System.in);
             String userAnswer = sc.nextLine();
