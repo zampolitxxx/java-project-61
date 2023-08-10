@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import java.util.function.UnaryOperator;
 
 public class Engine {
 
@@ -25,12 +24,13 @@ public class Engine {
                 System.out.println("Correct!");
                 score++;
             } else {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + data[i][INDEX_OF_ANSWER] + "'.");
-                System.out.print("Let's try again, " + Cli.name + "!");
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " +
+                        "'" + data[i][INDEX_OF_ANSWER] + "'.");
+                System.out.print("Let's try again, " + Cli.getName() + "!");
                 break;
             }
-            if (score == 3) {
-                System.out.print("Congratulations, " + Cli.name + "!");
+            if (score == NUMBER_OF_ROUNDS) {
+                System.out.print("Congratulations, " + Cli.getName() + "!");
             }
         }
     }

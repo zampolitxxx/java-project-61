@@ -20,18 +20,3 @@ public class Even {
         Engine.startGame(RULES, data);
     }
 }
-    /*
-        Engine.printMessage("Question: " + randomNumber);
-        String answer = Engine.getStr("Your answer: ");
-        if ((answer.equals("yes") && (randomNumber % 2) == 0) || (answer.equals("no") && (randomNumber % 2) != 0)) {
-            return "Correct!";
-        } else {
-            if ((randomNumber % 2) != 0 & !answer.equals("no")) {
-                return "'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.";
-            } else {
-                return "'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.";
-            }
-        }
-    }
-
-*/

@@ -10,7 +10,8 @@ public class Prime {
     public static void playPrime() {
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
             int shiftNumber = 1;   //avoids one in a number of random numbers
-            int randomNumber = shiftNumber + (int) (Math.random() * (Engine.MAX_RANDOM - Engine.MIN_RANDOM) + Engine.MIN_RANDOM);
+            int randomNumber = shiftNumber + (int) (Math.random() *
+                    (Engine.MAX_RANDOM - Engine.MIN_RANDOM) + Engine.MIN_RANDOM);
             data[i][Engine.INDEX_OF_QESTION] = Integer.toString(randomNumber);
             if (isPrime(randomNumber)) {
                 correctAnswer = "yes";

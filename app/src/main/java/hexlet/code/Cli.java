@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 class Cli {
-    public static String name = "";
+    private static String name = "";
 
     public static String getName() {
         return name;

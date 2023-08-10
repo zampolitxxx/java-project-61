@@ -3,20 +3,20 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Progression {
-    private static final int progressionLength = 10;
-    private static final int sizeStringbuffer = 3;           // Коэффициент для выделения памяти под stringbuffer
+    private static final int PROGRESSION_LENGTH = 10;
+    private static final int SIZE_STRINGBUFFER = 3;           // coefficient for memory allocation for StringBuffer
     public static final String RULES = "What number is missing in the progression?";
     private static String[][] data = new String[Engine.NUMBER_OF_ROUNDS][Engine.NUM_OF_ELEM];
     private static int correctResult = 0;
     private static String correctAnswer = "";
     public static void playProgression() {
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            StringBuffer sb = new StringBuffer(progressionLength * sizeStringbuffer);
-            int indexOfHiddenNumber = (int) (Math.random() * progressionLength);
+            StringBuffer sb = new StringBuffer(PROGRESSION_LENGTH * SIZE_STRINGBUFFER);
+            int indexOfHiddenNumber = (int) (Math.random() * PROGRESSION_LENGTH);
             correctResult = indexOfHiddenNumber;
             correctAnswer = Integer.toString(correctResult);
-            int[] progressionOfNumbers = getProgression("sum", progressionLength);
-            for (int j = 0; j < progressionLength; j++) {
+            int[] progressionOfNumbers = getProgression(PROGRESSION_LENGTH);
+            for (int j = 0; j < PROGRESSION_LENGTH; j++) {
                 if (j == indexOfHiddenNumber) {
                     sb.append(".. ");
                 } else {
@@ -28,7 +28,7 @@ public class Progression {
         }
         Engine.startGame(RULES, data);
     }
-    private static int[] getProgression(String mode, int progressionLength) {
+    private static int[] getProgression(int progressionLength) {
         int[] progressionNumbers = new int[progressionLength];
         for (int i = 0; i < progressionLength; i++) {
             progressionNumbers[i] = i;
