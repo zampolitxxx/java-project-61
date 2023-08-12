@@ -1,33 +1,27 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static String[][] data = new String[Engine.NUMBER_OF_ROUNDS][Engine.NUM_OF_ELEM];
-    private static int correctResult = 0;
-    private static String correctAnswer = "";
+    private static final int MAX_RANDOM = 20;
+    private static String[][] data = new String[Engine.NUMBER_OF_ROUNDS][2];
+
     public static void playPrime() {
-        for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            int shiftNumber = 1;   //avoids one in a number of random numbers
-            int randomNumber = shiftNumber + (int) (Math.random()
-                    * (Engine.MAX_RANDOM - Engine.MIN_RANDOM) + Engine.MIN_RANDOM);
-            data[i][Engine.INDEX_OF_QESTION] = Integer.toString(randomNumber);
-            if (isPrime(randomNumber)) {
-                correctAnswer = "yes";
-            } else {
-                correctAnswer = "no";
-            }
-            data[i][Engine.INDEX_OF_ANSWER] = correctAnswer;
+        for (int i = 0; i < data.length; i++) {
+            data[i] = getRoundData();
         }
-        Engine.startGame(RULES, data);
     }
-    public static boolean isPrime(int number) {
-        for (int i = 2; i <= number / 2; i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
+
+    private static String[] getRoundData(){
+        int randomNumber = Util.getRandom(MAX_RANDOM);
+        String correctAnswer = isPrime(randomNumber) ? "yes" : "no";
+        String question = Integer.toString(randomNumber);
+        return new String[] {question, correctAnswer};
+    }
+    
+    private static boolean isPrime(int number) {
+        return number % 2 == 0;
     }
 }

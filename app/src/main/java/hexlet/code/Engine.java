@@ -3,35 +3,31 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-
-    public static final int INDEX_OF_QESTION = 0;   //in the data array [["Qustion, ...] => index=0;
-    public static final int INDEX_OF_ANSWER = 1;   //in the data array [["..., "Answer"],  => index=1;
-    public static final int MAX_RANDOM = 20;
-    public static final int MIN_RANDOM = 1;
     public static final int NUMBER_OF_ROUNDS = 3;
-    public static final int NUM_OF_ELEM = 2; // Number of elements in array [["Qestion", "Answer"]... => 1+1=2
-    private static int score = 0;
-
     public static void startGame(String rules, String[][] data) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("""
+                Welcome to the Brain Games!
+                May I have your name?""");
+        String playerName = sc.next();
+        System.out.println("\nHello, " + playerName + "!");
         System.out.println(rules);
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            System.out.println("Question: " + data[i][INDEX_OF_QESTION]);
+            String question = data[i][0];
+            String answer = data[i][1];
+            System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            Scanner sc = new Scanner(System.in);
-            String userAnswer = sc.nextLine();
-//            sc.close();
-            if (data[i][INDEX_OF_ANSWER].equals(userAnswer)) {
+            String userAnswer = sc.nextLine().toLowerCase();
+            if (answer.equals(userAnswer)) {
                 System.out.println("Correct!");
-                score++;
             } else {
                 System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was "
-                        + "'" + data[i][INDEX_OF_ANSWER] + "'.");
-                System.out.print("Let's try again, " + Cli.getName() + "!");
-                break;
+                        + "'" + answer + "'.");
+                System.out.print("Let's try again, " + playerName + "!");
+                sc.close();
+                return;
             }
-            if (score == NUMBER_OF_ROUNDS) {
-                System.out.print("Congratulations, " + Cli.getName() + "!");
-            }
+            System.out.print("Congratulations, " + playerName + "!");
         }
     }
 }

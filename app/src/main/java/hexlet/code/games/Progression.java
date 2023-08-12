@@ -6,11 +6,11 @@ public class Progression {
     private static final int PROGRESSION_LENGTH = 10;
     private static final int SIZE_STRINGBUFFER = 3;           // coefficient for memory allocation for StringBuffer
     public static final String RULES = "What number is missing in the progression?";
-    private static String[][] data = new String[Engine.NUMBER_OF_ROUNDS][Engine.NUM_OF_ELEM];
+    private static String[][] data = new String[Engine.NUMBER_OF_ROUNDS][2];
     private static int correctResult = 0;
     private static String correctAnswer = "";
     public static void playProgression() {
-        for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
+        for (int i = 0; i < data.length; i++) {
             StringBuffer sb = new StringBuffer(PROGRESSION_LENGTH * SIZE_STRINGBUFFER);
             int indexOfHiddenNumber = (int) (Math.random() * PROGRESSION_LENGTH);
             correctResult = indexOfHiddenNumber;
@@ -23,8 +23,8 @@ public class Progression {
                     sb.append(progressionOfNumbers[j] + " ");
                 }
             }
-            data[i][Engine.INDEX_OF_QESTION] = sb.toString();
-            data[i][Engine.INDEX_OF_ANSWER] = correctAnswer;
+            data[i][0] = sb.toString();
+            data[i][1] = correctAnswer;
         }
         Engine.startGame(RULES, data);
     }
