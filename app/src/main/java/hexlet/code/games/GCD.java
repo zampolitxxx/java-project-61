@@ -24,7 +24,7 @@ public class GCD {
     }
 
     private static int getGCD(int a, int b) {
-        int remainder = 0;
+        int remainder;
         int smallerNumber = a;
         int largerNumber = b;
         if (a >= b) {
