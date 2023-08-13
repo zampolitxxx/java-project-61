@@ -17,7 +17,7 @@ public class GCD {
     }
 
     private static String[] getRoundData() {
-        int firstNumber = Util.getRandom(MAX_RANDOM);
+        int firstNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
         int secondNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
         String correctAnswer = Integer.toString(getGCD(firstNumber, secondNumber));
         String question = firstNumber + " " + secondNumber;
