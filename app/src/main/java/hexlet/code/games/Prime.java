@@ -6,7 +6,7 @@ import hexlet.code.Util;
 public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int MAX_RANDOM = 20;
-    private static final int MIN_RANDOM = 1;
+    private static final int MIN_RANDOM = 2;
 
     public static void playPrime() {
         final String[][] data = new String[Engine.NUMBER_OF_ROUNDS][2];
