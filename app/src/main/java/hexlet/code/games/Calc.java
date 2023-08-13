@@ -10,11 +10,11 @@ public class Calc {
     private static final char[] SIGN = {'+', '-', '*'};
 
     public static void playCalc() {
-        final String[][] DATA = new String[Engine.NUMBER_OF_ROUNDS][2];
-        for (int i = 0; i < DATA.length; i++) {
-            DATA[i] = getRoundData();
+        final String[][] data = new String[Engine.NUMBER_OF_ROUNDS][2];
+        for (int i = 0; i < data.length; i++) {
+            data[i] = getRoundData();
         }
-        Engine.startGame(RULES, DATA);
+        Engine.startGame(RULES, data);
     }
 
     private static String[] getRoundData() {

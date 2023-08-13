@@ -9,14 +9,14 @@ public class Even {
     private static final int MIN_RANDOM = 1;
 
     public static void playEven() {
-        final String[][] DATA = new String[Engine.NUMBER_OF_ROUNDS][2];
-        for (int i = 0; i < DATA.length; i++) {
-            DATA[i] = getRoundData();
+        final String[][] data = new String[Engine.NUMBER_OF_ROUNDS][2];
+        for (int i = 0; i < data.length; i++) {
+            data[i] = getRoundData();
         }
-        Engine.startGame(RULES, DATA);
+        Engine.startGame(RULES, data);
     }
 
-    private static String[] getRoundData(){
+    private static String[] getRoundData() {
         int randomNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
         String correctAnswer = isEven(randomNumber) ? "yes" : "no";
         String question = Integer.toString(randomNumber);

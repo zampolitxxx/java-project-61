@@ -3,18 +3,16 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Util;
 
-import java.util.Arrays;
-
 public class Progression {
     public static final String RULES = "What number is missing in the progression?";
     private static final int PROGRESSION_LENGTH = 10;
-    private static final String[][] DATA = new String[Engine.NUMBER_OF_ROUNDS][2];
 
     public static void playProgression() {
-        for (int i = 0; i < DATA.length; i++) {
-            DATA[i] = getRoundData();
+        final String[][] data = new String[Engine.NUMBER_OF_ROUNDS][2];
+        for (int i = 0; i < data.length; i++) {
+            data[i] = getRoundData();
         }
-        Engine.startGame(RULES, DATA);
+        Engine.startGame(RULES, data);
     }
 
     private static String[] getRoundData() {
