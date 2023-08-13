@@ -1,30 +1,35 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class Calc {
     private static final String RULES = "What is the result of the expression?";
-    public static final int MAX_RANDOM = 20;
-    public static final int MIN_RANDOM = 1;
-    private static final String[][] data = new String[Engine.NUMBER_OF_ROUNDS][2];
-    private int userResult = 0;
+    private static final int MAX_RANDOM = 20;
+    private static final int MIN_RANDOM = 1;
     private static final char[] SIGN = {'+', '-', '*'};
+
     public static void playCalc() {
-        for (int i = 0; i < data.length; i++) {
-            int firstNumber = 1 + (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM) + MIN_RANDOM);
-            int secondNumber = 1 + (int) (Math.random() * (MAX_RANDOM - MIN_RANDOM) + MIN_RANDOM);
-            char signInExpression = SIGN[((int) (Math.random() * (SIGN.length)))];
-            int correctResult = 0;
-            switch (signInExpression) {
-                case '-': correctResult = firstNumber - secondNumber; break;
-                case '+': correctResult = firstNumber + secondNumber; break;
-                case '*': correctResult = firstNumber * secondNumber; break;
-                default: correctResult = 0;
-            }
-            String correctAnswer = Integer.toString(correctResult);
-            data[i][0] = firstNumber + " " + signInExpression + " " + secondNumber;
-            data[i][1] = correctAnswer;
+        final String[][] DATA = new String[Engine.NUMBER_OF_ROUNDS][2];
+        for (int i = 0; i < DATA.length; i++) {
+            DATA[i] = getRoundData();
         }
-        Engine.startGame(RULES, data);
+        Engine.startGame(RULES, DATA);
+    }
+
+    private static String[] getRoundData() {
+        int firstNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
+        int secondNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
+        char signInExpression = SIGN[Util.getRandom(SIGN.length)];
+        int correctResult;
+        switch (signInExpression) {
+            case '-': correctResult = firstNumber - secondNumber; break;
+            case '+': correctResult = firstNumber + secondNumber; break;
+            case '*': correctResult = firstNumber * secondNumber; break;
+            default: correctResult = 0;
+        }
+        String correctAnswer = Integer.toString(correctResult);
+        String question = firstNumber + " " + signInExpression + " " + secondNumber;
+        return new String[] {question, correctAnswer};
     }
 }
