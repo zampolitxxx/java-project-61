@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int NUMBER_OF_ROUNDS = 3;
+
     public static void startGame(String rules, String[][] data) {
         Scanner sc = new Scanner(System.in);
         System.out.println("""
