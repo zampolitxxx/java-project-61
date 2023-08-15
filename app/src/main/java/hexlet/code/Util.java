@@ -10,6 +10,6 @@ public class Util {
 //    generates values from zero to maxRandom
     public static int getRandom(int maxRandom) {
         int minRandom = 0;
-        return (int) (Math.random() * (maxRandom - minRandom) + minRandom);
+        return getRandom(maxRandom, minRandom);
     }
 }
