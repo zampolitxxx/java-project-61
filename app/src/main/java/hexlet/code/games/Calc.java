@@ -22,21 +22,9 @@ public class Calc {
         int secondNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
         int indexofSign = Util.getRandom(SIGN.length);
         String  signInExpression = SIGN[indexofSign];
-        int correctResult = calculate(firstNumber, indexofSign, secondNumber);
+        int correctResult = Util.calculate(firstNumber, indexofSign, secondNumber);
         String correctAnswer = Integer.toString(correctResult);
         String question = firstNumber + " " + signInExpression + " " + secondNumber;
         return new String[] {question, correctAnswer};
-    }
-
-    private static int calculate (int firstNumber, int sign, int secondNumber) {
-        switch (sign) {
-            case 0:
-                return firstNumber + secondNumber;
-            case 1:
-                return firstNumber - secondNumber;
-            case 2:
-                return firstNumber * secondNumber;
-            default: return 0;
-        }
     }
 }
