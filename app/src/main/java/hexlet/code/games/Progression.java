@@ -16,17 +16,14 @@ public class Progression {
     }
 
     private static String[] getRoundData() {
-        int sign = Util.getRandom(2);
         int indexOfHiddenNumber = Util.getRandom(PROGRESSION_LENGTH);
         int firstNumber = Util.getRandom();
         int step = Util.getRandom();
-
-        int correctAnswer = Util.calculate(firstNumber, sign, )
-        String correctAnswer = Integer.toString(indexOfHiddenNumber);
         String[] arrQuestion = getProgression(PROGRESSION_LENGTH, firstNumber, step);      //["0", "1", "2", "3", ...]
+        String correctAnswerStr = arrQuestion[indexOfHiddenNumber];
         arrQuestion[indexOfHiddenNumber] = "..";    //["0", "..", "2", "3", ...]
         String question = String.join(",", arrQuestion).replace(',', ' ');  //"0 .. 2 3...."
-        return new String[] {question, correctAnswer};
+        return new String[] {question, correctAnswerStr};
     }
 
     private static String[] getProgression(int progressionLength, int firstNumber,int step) {
