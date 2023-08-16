@@ -6,19 +6,7 @@ public class Util {
         return (int) (Math.random() * (maxRandom - minRandom) + minRandom);
     }
 
-//    generates values from zero to maxRandom
-    public static int getRandom(int maxRandom) {
-        int minRandom = 0;
-        return getRandom(maxRandom, minRandom);
-    }
-
-//    generates values from zero to local variables
-    public static int getRandom() {
-        int maxRandom = 20;
-        return getRandom(maxRandom);
-    }
-
-    public static int calculate (int firstNumber, int sign, int secondNumber) {
+    public static int calculate(int firstNumber, int sign, int secondNumber) {
         switch (sign) {
             case 0:
                 return firstNumber + secondNumber;

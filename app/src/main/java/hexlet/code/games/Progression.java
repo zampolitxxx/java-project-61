@@ -6,6 +6,8 @@ import hexlet.code.Util;
 public class Progression {
     public static final String RULES = "What number is missing in the progression?";
     private static final int PROGRESSION_LENGTH = 10;
+    private static final int MAX_RANDOM = 20;
+    private static final int MIN_RANDOM = 0;
 
     public static void playProgression() {
         final String[][] data = new String[Engine.NUMBER_OF_ROUNDS][2];
@@ -16,17 +18,17 @@ public class Progression {
     }
 
     private static String[] getRoundData() {
-        int indexOfHiddenNumber = Util.getRandom(PROGRESSION_LENGTH);
-        int firstNumber = Util.getRandom();
-        int step = Util.getRandom();
+        int indexOfHiddenNumber = Util.getRandom(PROGRESSION_LENGTH, MIN_RANDOM);
+        int firstNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
+        int step = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
         String[] arrQuestion = getProgression(PROGRESSION_LENGTH, firstNumber, step);      //["0", "1", "2", "3", ...]
         String correctAnswerStr = arrQuestion[indexOfHiddenNumber];
         arrQuestion[indexOfHiddenNumber] = "..";    //["0", "..", "2", "3", ...]
-        String question = String.join(",", arrQuestion).replace(',', ' ');  //"0 .. 2 3...."
+        String question = String.join(" ", arrQuestion);  //"0 .. 2 3...."
         return new String[] {question, correctAnswerStr};
     }
 
-    private static String[] getProgression(int progressionLength, int firstNumber,int step) {
+    private static String[] getProgression(int progressionLength, int firstNumber, int step) {
         String[] progressionNumbers = new String[progressionLength];
         int nextNumber = firstNumber;
         for (int i = 0; i < progressionLength; i++) {

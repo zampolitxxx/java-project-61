@@ -6,7 +6,7 @@ import hexlet.code.Util;
 public class Calc {
     private static final String RULES = "What is the result of the expression?";
     private static final int MAX_RANDOM = 20;
-    private static final int MIN_RANDOM = 1;
+    private static final int MIN_RANDOM = 0;
     private static final String[] SIGN = {"+", "-", "*"};
 
     public static void playCalc() {
@@ -20,7 +20,7 @@ public class Calc {
     private static String[] getRoundData() {
         int firstNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
         int secondNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
-        int indexofSign = Util.getRandom(SIGN.length);
+        int indexofSign = Util.getRandom(SIGN.length, MIN_RANDOM);
         String  signInExpression = SIGN[indexofSign];
         int correctResult = Util.calculate(firstNumber, indexofSign, secondNumber);
         String correctAnswer = Integer.toString(correctResult);
