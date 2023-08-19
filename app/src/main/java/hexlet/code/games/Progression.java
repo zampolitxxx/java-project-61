@@ -30,10 +30,8 @@ public class Progression {
 
     private static String[] getProgression(int progressionLength, int firstNumber, int step) {
         String[] progressionNumbers = new String[progressionLength];
-        int nextNumber = firstNumber;
         for (int i = 0; i < progressionLength; i++) {
-            nextNumber += step;
-            progressionNumbers[i] = Integer.toString(nextNumber);
+            progressionNumbers[i] = Integer.toString(firstNumber + i * step);
         }
         return progressionNumbers;  //["0", "1", "2", "3", ...]
     }
