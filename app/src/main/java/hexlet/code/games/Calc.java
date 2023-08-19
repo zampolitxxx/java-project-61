@@ -22,9 +22,26 @@ public class Calc {
         int secondNumber = Util.getRandom(MAX_RANDOM, MIN_RANDOM);
         int indexofSign = Util.getRandom(SIGN.length, MIN_RANDOM);
         String  signInExpression = SIGN[indexofSign];
-        int correctResult = Util.calculate(firstNumber, indexofSign, secondNumber);
+        int correctResult = 0;
+        try {
+            correctResult = calculate(firstNumber, signInExpression, secondNumber);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         String correctAnswer = Integer.toString(correctResult);
         String question = firstNumber + " " + signInExpression + " " + secondNumber;
         return new String[] {question, correctAnswer};
+    }
+
+    private static int calculate(int firstNumber, String sign, int secondNumber) throws Exception {
+        switch (sign) {
+            case "+":
+                return firstNumber + secondNumber;
+            case "-":
+                return firstNumber - secondNumber;
+            case "*":
+                return firstNumber * secondNumber;
+            default: throw new Exception("Exception! Sign is not correct");
+        }
     }
 }
